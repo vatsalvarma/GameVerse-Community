@@ -10,18 +10,6 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// COMMUNITY REVIEWS (LOCAL STORAGE)
-const posts = document.getElementById("posts");
-let data = JSON.parse(localStorage.getItem("reviews"));
-
-if (!data || data.length === 0) {
-  data = [
-    { name: "Alex", mod: "Cyberpunk Mods", rating: 5, text: "Night City feels alive!" },
-    { name: "Ravi", mod: "GTA V Graphics", rating: 5, text: "Next-gen realism." },
-    { name: "Maya", mod: "Watch Dogs AI", rating: 4, text: "AI behavior feels smarter." }
-  ];
-  localStorage.setItem("reviews", JSON.stringify(data));
-}
 
 function render() {
   posts.innerHTML = "";
