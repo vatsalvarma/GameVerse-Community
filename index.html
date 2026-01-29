@@ -9,7 +9,7 @@
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:Arial, sans-serif;background:black;color:white}
 
-        /* ================= HOME ================= */
+        /* ================= HOME (UNCHANGED) ================= */
         .home{
           height:100vh;
           background-image:url("https://i.pinimg.com/1200x/34/0e/7e/340e7e35640d1d10d2075abd4ab72c9d.jpg");
@@ -19,7 +19,6 @@
           align-items:center;
           padding-left:8vw;
           position:relative;
-          animation:backgroundFloat 18s ease-in-out infinite alternate;
         }
         .home::before{
           content:"";
@@ -31,105 +30,835 @@
         .home h1{font-size:4rem}
         .home span{margin-top:20px;display:block;opacity:.75}
 
-        /* HOME ANIMATION */
-        .home-content h1{
-          opacity:0;
-          transform:translateY(40px);
-          animation:fadeUp 1.2s ease forwards;
+        /* ================= SPLIT SECTIONS ================= */
+        .split{
+          min-height:100vh;
+          display:grid;
+          grid-template-columns:1fr 1fr;
         }
-        .home-content span{
-          opacity:0;
-          transform:translateY(30px);
-          animation:fadeUp 1.2s ease forwards;
-          animation-delay:.4s;
-        }
-        @keyframes fadeUp{to{opacity:1;transform:none}}
-        @keyframes backgroundFloat{
-          from{background-position:center}
-          to{background-position:center top}
-        }
-
-        /* ================= SECTIONS / CARDS ================= */
-        .split{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
         .split.reverse{direction:rtl}
-        .split.reverse>*{direction:ltr}
+        .split.reverse > *{direction:ltr}
 
-        .split-content{padding:100px 8vw}
-        .split-content h2{font-size:3rem;margin-bottom:20px}
-        .split-content p{opacity:.75;max-width:500px}
-
-        .games{padding:100px 8vw;background:#050505}
-        .games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
-
-        .game{background:#111;border-radius:18px;overflow:hidden;transition:.5s}
-        .game:hover{transform:translateY(-12px)}
-        .game img{width:100%;height:200px;object-fit:cover}
-
-        /* ================= MODS ================= */
-        .mods-grid{display:flex;gap:25px;overflow-x:auto;padding-bottom:20px}
-        .mod-card{
-          min-width:260px;
-          height:180px;
-          background-size:cover;
-          background-position:center;
-          border-radius:16px;
-          display:flex;
-          align-items:flex-end;
-          padding:15px;
-          color:white;
-          font-weight:bold;
-          text-decoration:none;
+        .split-img{
           position:relative;
+          overflow:hidden;
         }
-        .mod-card::before{
-          content:"";
-          position:absolute;
-          inset:0;
-          background:linear-gradient(to top,rgba(0,0,0,.7),transparent);
+        .split-img img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          transform:scale(1.1);
+          transition:transform 1.2s ease;
         }
-        .mod-card div{position:relative;z-index:1}
+        .split.show img{transform:scale(1)}
 
-        .mod1{background-image:url("https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf")}
-        .mod2{background-image:url("https://i.pinimg.com/1200x/e0/e0/3d/e0e03d3116ddd604d445c17fe35df522.jpg")}
-        .mod3{background-image:url("https://i.pinimg.com/736x/19/0b/9f/190b9f7b17ad04c5bbc2a058f76de04b.jpg")}
+        .split-content{
+          padding:100px 8vw;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+        }
+        .split-content h2{font-size:3rem;margin-bottom:20px}
+        .split-content p{opacity:.75;font-size:1.1rem;max-width:500px}
+
+        /* ================= GAME CARDS ================= */
+        .games{
+          padding:100px 8vw;
+          background:#050505;
+        }
+        .games h2{font-size:3rem;margin-bottom:40px}
+
+        .games-grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+          gap:30px;
+        }
+        .game{
+          background:#111;
+          border-radius:18px;
+          overflow:hidden;
+          transition:.5s;
+        }
+        .game:hover{
+          transform:translateY(-12px);
+        }
+        .game img{
+          width:100%;
+          height:200px;
+          object-fit:cover;
+        }
+        .game div{padding:20px}
+        .game a{
+          color:#6b6bff;
+          text-decoration:none;
+          font-weight:bold;
+        }
+
+        /* ================= MOD CARDS ================= */
+        .mods-grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+          gap:25px;
+          margin-top:40px;
+        }
+        .mod-card{
+          background:#111;
+          border-radius:16px;
+          overflow:hidden;
+          transition:.5s;
+        }
+        .mod-card:hover{
+          transform:translateY(-10px) scale(1.03);
+        }
+        .mod-card img{
+          width:100%;
+          height:180px;
+          object-fit:cover;
+        }
+        .mod-card div{padding:15px}
 
         /* ================= COMMUNITY ================= */
-        .community{padding:100px 8vw;background:#0f0f0f}
-        .posts{display:grid;gap:20px}
-        .post{background:#1a1a1a;padding:20px;border-radius:12px}
+        .community{
+          padding:100px 8vw;
+          background:#0f0f0f;
+        }
+        .community h2{font-size:3rem;margin-bottom:30px}
 
-        .post-header{display:flex;gap:12px;align-items:center}
-        .avatar{
-          width:45px;height:45px;border-radius:50%;
-          background:linear-gradient(135deg,#ff4d4d,#6b6bff);
-          display:flex;align-items:center;justify-content:center;font-weight:bold
+        .review-form{
+          max-width:500px;
+          display:grid;
+          gap:15px;
+          margin-bottom:50px;
+        }
+        .review-form input,
+        .review-form textarea,
+        .review-form select{
+          padding:12px;
+          border-radius:8px;
+          border:none;
+        }
+        .review-form button{
+          padding:12px;
+          border-radius:8px;
+          border:none;
+          font-weight:bold;
+          cursor:pointer;
         }
 
-        /* SCROLL REVEAL */
-        .reveal{opacity:0;transform:translateY(80px);transition:1s}
-        .reveal.show{opacity:1;transform:none}
+        .posts{display:grid;gap:20px}
+        .post{
+          background:#1a1a1a;
+          padding:20px;
+          border-radius:12px;
+        }
+        .post-header{
+          display:flex;
+          gap:12px;
+          align-items:center;
+        }
+        .avatar{
+          width:45px;height:45px;
+          border-radius:50%;
+          background:linear-gradient(135deg,#ff4d4d,#6b6bff);
+          display:flex;align-items:center;justify-content:center;
+          font-weight:bold;
+        }
+        .rating{color:gold;margin:6px 0}
+
+        /* ================= SCROLL ANIMATION ================= */
+        .reveal{
+          opacity:0;
+          transform:translateY(80px);
+          transition:1s ease;
+        }
+        .reveal.show{
+          opacity:1;
+          transform:none;
+        }
+
+        /* ================= MODDING BACKGROUND IMAGE ================= */
+.mod-hero{
+  background-image:url("https://i.pinimg.com/1200x/34/6e/90/346e90e458be1b34e0f4bbe2a4adec9c.jpg");
+  background-size:cover;
+  background-position:center;
+}
+
+/* ================= MOD CARDS WITH URL IMAGES ================= */
+.mod-card{
+  height:180px;
+  background-size:cover;
+  background-position:center;
+  border-radius:16px;
+  display:flex;
+  align-items:flex-end;
+  padding:15px;
+  color:white;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.5s;
+  position:relative;
+  overflow:hidden;
+}
+
+.mod-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.7),transparent);
+}
+
+.mod-card div{
+  position:relative;
+  z-index:1;
+}
+
+.mod-card:hover{
+  transform:translateY(-10px) scale(1.04);
+}
+
+/* INDIVIDUAL MOD IMAGES (URL ONLY) */
+.mod1{
+  background-image:url("https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf");
+}
+.mod2{
+  background-image:url("https://i.pinimg.com/1200x/e0/e0/3d/e0e03d3116ddd604d445c17fe35df522.jpg");
+}
+.mod3{
+  background-image:url("https://i.pinimg.com/736x/19/0b/9f/190b9f7b17ad04c5bbc2a058f76de04b.jpg");
+}
+
+        /* ================= EXTRA HERO SECTIONS ================= */
+.hero-split{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  overflow:hidden;
+}
+
+.hero-split.reverse{direction:rtl}
+.hero-split.reverse > *{direction:ltr}
+
+.hero-img{
+  height:100%;
+  position:relative;
+  overflow:hidden;
+}
+.hero-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.15);
+  transition:transform 1.6s ease;
+}
+.hero-split.show img{transform:scale(1)}
+
+.hero-content{
+  padding:100px 8vw;
+}
+.hero-content h2{
+  font-size:3rem;
+  margin-bottom:20px;
+}
+.hero-content p{
+  opacity:.75;
+  max-width:520px;
+}
+
+.hero-mods{
+  margin-top:40px;
+  display:grid;
+  gap:20px;
+}
+
+.hero-mod{
+  background:#111;
+  padding:18px 22px;
+  border-radius:14px;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  position:relative;
+  overflow:hidden;
+  transition:.5s;
+}
+.hero-mod::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,#6b6bff55,transparent);
+  transform:translateX(-100%);
+  transition:.6s;
+}
+.hero-mod:hover::before{transform:translateX(100%)}
+.hero-mod:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 40px rgba(107,107,255,.25);
+}
+
+        /* ================= FLOATING MOD CARDS ================= */
+.floating-section{
+  padding:120px 8vw;
+  background:#070707;
+}
+
+.floating-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+}
+
+.floating-card{
+  position:relative;
+  height:340px;
+  border-radius:22px;
+  overflow:hidden;
+  cursor:pointer;
+  background:#111;
+  transition:.6s cubic-bezier(.2,.8,.2,1);
+  animation:float 6s ease-in-out infinite;
+}
+
+.floating-card:nth-child(2){animation-delay:1s}
+.floating-card:nth-child(3){animation-delay:2s}
+.floating-card:nth-child(4){animation-delay:3s}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-14px)}
+}
+
+.floating-card img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.15);
+  transition:1s ease;
+}
+
+.floating-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.8),transparent 60%);
+  z-index:1;
+}
+
+.floating-card div{
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  z-index:2;
+}
+
+.floating-card h3{
+  font-size:1.4rem;
+  margin-bottom:6px;
+}
+
+.floating-card span{
+  opacity:.75;
+  font-size:.95rem;
+}
+
+.floating-card:hover{
+  transform:translateY(-25px) scale(1.05);
+  box-shadow:0 35px 80px rgba(107,107,255,.35);
+}
+
+.floating-card:hover img{
+  transform:scale(1);
+}
+
+/* ================= GLASS CONTACT DROPDOWN ================= */
+.contact-menu{
+  position:absolute;
+  top:25px;
+  right:40px;
+  z-index:5;
+}
+
+.contact-btn{
+  padding:10px 18px;
+  border-radius:14px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.4s;
+  border:1px solid rgba(255,255,255,.25);
+}
+
+.contact-btn:hover{
+  background:rgba(255,255,255,.22);
+}
+
+.contact-dropdown{
+  position:absolute;
+  top:55px;
+  right:0;
+  min-width:200px;
+  background:rgba(20,20,20,.75);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-radius:16px;
+  overflow:hidden;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(-10px) scale(.95);
+  transition:.45s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 25px 60px rgba(0,0,0,.5);
+}
+
+.contact-menu:hover .contact-dropdown{
+  opacity:1;
+  pointer-events:auto;
+  transform:none;
+}
+
+.contact-dropdown a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 18px;
+  color:white;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.contact-dropdown a:hover{
+  background:rgba(107,107,255,.25);
+}
+/* ========== TRANSPARENT FLOATING CONTACT GLASS (NO BLUR) ========== */
+.glass-profile{
+  position:absolute;
+  top:25px;
+  right:40px;
+  padding:16px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.08); /* transparent glass */
+  border:1px solid rgba(255,255,255,0.25);
+  color:white;
+  z-index:6;
+  animation:floatProfile 6s ease-in-out infinite;
+}
+
+@keyframes floatProfile{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+.glass-profile h4{
+  font-size:1.1rem;
+  margin-bottom:4px;
+}
+
+.glass-profile p{
+  font-size:.85rem;
+  opacity:.75;
+  margin-bottom:10px;
+}
+
+.profile-links{
+  display:flex;
+  gap:14px;
+}
+
+.profile-links a{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.4s;
+}
+
+.profile-links a img{
+  width:22px;
+  height:22px;
+}
+
+.profile-links a:hover{
+  transform:translateY(-6px) scale(1.1);
+  background:rgba(107,107,255,0.35);
+  box-shadow:0 15px 40px rgba(107,107,255,.4);
+}
+
+/* ================= HOME SMOOTH ANIMATIONS ================= */
+
+.home-content h1{
+  opacity:0;
+  transform:translateY(40px);
+  animation:fadeUp 1.2s ease forwards;
+}
+
+.home-content span{
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1.2s ease forwards;
+  animation-delay:.4s;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.home{
+  animation:backgroundFloat 18s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundFloat{
+  from{background-position:center}
+  to{background-position:center top}
+}
+
+
     </style>
 </head>
 
 <body>
 
+<!-- HOME -->
 <section class="home">
-  <div class="home-content">
-    <h1>Welcome to GameVerse</h1>
-    <span>Next-gen gaming universe</span>
-  </div>
+    <div class="home-content">
+        <h1>Welcome to GameVerse</h1>
+        <span>Next-gen gaming universe - want to add ur mods connect us through gmail</span>
+    </div>
+    <div class="glass-profile">
+        <h4>  </h4>
+        <p> v here</p>
+
+        <div class="profile-links">
+            <a href="https://github.com/vatsalvarma" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+            </a>
+        </div>
+    </div>
+
+
 </section>
 
+<!-- NEW GAME LAUNCHES (FIRST) -->
 <section class="games reveal">
-  <h2>New Game Launches</h2>
+    <h2>New Game Launches</h2>
+
+    <div class="games-grid">
+        <div class="game">
+            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg">
+            <div>
+                <h3>Cyberpunk 2077</h3>
+                <a href="https://www.cyberpunk.net" target="_blank">Official Site →</a>
+            </div>
+        </div>
+
+        <div class="game">
+            <img src="https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg">
+            <div>
+                <h3>Elden Ring</h3>
+                <a href="https://en.bandainamcoent.eu/elden-ring" target="_blank">Official Site →</a>
+            </div>
+        </div>
+
+        <div class="game">
+            <img src="https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg">
+            <div>
+                <h3>GTA V</h3>
+                <a href="https://www.rockstargames.com/gta-v" target="_blank">Official Site →</a>
+            </div>
+        </div>
+
+        <div class="game">
+            <img src="https://cdn.akamai.steamstatic.com/steam/apps/292030/header.jpg">
+            <div>
+                <h3>Witcher 3</h3>
+                <a href="https://thewitcher.com" target="_blank">Official Site →</a>
+            </div>
+        </div>
+    </div>
 </section>
 
+<!-- MODDING COMMUNITY (SECOND) -->
+<section class="split reveal">
+    <div class="split-img mod-hero"></div>
+
+    <div class="split-content">
+        <h2>Modding Community</h2>
+        <p>Discover modded worlds, custom skins, AI packs and next-gen gameplay enhancements built by gamers.</p>
+
+        <div class="mods-grid">
+
+            <a class="mod-card mod1" href="https://www.nexusmods.com" target="_blank">
+                <div>Cyber Expansion</div>
+            </a>
+
+            <a class="mod-card mod2" href="https://www.moddb.com" target="_blank">
+                <div>Ultra Graphics Pack</div>
+            </a>
+
+            <a class="mod-card mod3" href="https://steamcommunity.com/workshop" target="_blank">
+                <div>Open World AI</div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- FLOATING MOD CARDS -->
+<section class="floating-section reveal">
+    <div class="floating-grid">
+
+        <a class="floating-card" href="https://www.nexusmods.com/watchdogs" target="_blank">
+            <img src="https://i.pinimg.com/736x/32/9e/f5/329ef58200beb783fd599640e109a016.jpg">
+        </a>
+
+        <a class="floating-card" href="https://www.gta5-mods.com" target="_blank">
+            <img src="https://i.pinimg.com/736x/4a/0e/01/4a0e01569613421d4afb9ef5e2346460.jpg">
+        </a>
+
+        <a class="floating-card" href="https://www.nexusmods.com/watchdogs" target="_blank">
+            <img src="https://i.pinimg.com/736x/6e/a9/53/6ea9531fc00d1361d43620fea6206e51.jpg">
+        </a>
+
+        <a class="floating-card" href="https://www.nexusmods.com/eldenring" target="_blank">
+            <img src="https://i.pinimg.com/736x/b4/68/6d/b4686d2da7e53153cf9f8b65c60ec46f.jpg">
+        </a>
+
+    </div>
+</section>
+
+
+<!-- WATCH DOGS -->
+<section class="hero-split reveal reverse">
+    <div class="hero-img">
+        <img src="https://i.pinimg.com/1200x/85/a2/a2/85a2a268c5bc5ca19c0b06586c6ccdae.jpg">
+    </div>
+
+    <div class="hero-content">
+        <h2>Watch Dogs Mods</h2>
+        <p>Hack the city with ultra-realistic visuals, enhanced AI behavior, and stealth mechanics.</p>
+
+        <div class="hero-mods">
+            <a class="hero-mod" href="https://www.nexusmods.com/watchdogs" target="_blank">Realistic Graphics Mod →</a>
+            <a class="hero-mod" href="https://www.moddb.com/games/watch-dogs" target="_blank">AI Overhaul Pack →</a>
+        </div>
+    </div>
+</section>
+
+<!-- GTA V -->
+<section class="hero-split reveal">
+    <div class="hero-img">
+        <img src="https://i.pinimg.com/736x/68/18/8d/68188d10225503bf44f28197ee0f0605.jpg">
+    </div>
+
+    <div class="hero-content">
+        <h2>GTA V Mods</h2>
+        <p>Next-gen realism, roleplay mods, realistic cars, and cinematic reshade packs.</p>
+
+        <div class="hero-mods">
+            <a class="hero-mod" href="https://www.gta5-mods.com" target="_blank">Natural Vision Evolved →</a>
+            <a class="hero-mod" href="https://www.nexusmods.com/gta5" target="_blank">Realistic Driving Mod →</a>
+        </div>
+    </div>
+</section>
+
+<!-- CYBERPUNK -->
+<section class="hero-split reveal reverse">
+    <div class="hero-img">
+        <img src="https://i.pinimg.com/736x/2d/a7/b6/2da7b60b70c0039dcdd67ab476eb9b34.jpg">
+    </div>
+
+    <div class="hero-content">
+        <h2>Cyberpunk Mods</h2>
+        <p>Ultra lighting, combat reworks, immersive HUD, and next-gen AI upgrades.</p>
+
+        <div class="hero-mods">
+            <a class="hero-mod" href="https://www.nexusmods.com/cyberpunk2077" target="_blank">Path Tracing Overhaul →</a>
+            <a class="hero-mod" href="https://www.moddb.com/games/cyberpunk-2077" target="_blank">Immersive Combat Mod →</a>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- COMMUNITY REVIEWS -->
 <section class="community reveal">
-  <h2>Community Reviews</h2>
-  <div class="posts" id="posts"></div>
+    <h2>Community Reviews</h2>
+
+    <div class="review-form">
+        <input id="username" placeholder="Your name">
+        <input id="modname" placeholder="Game / Mod name">
+        <select id="rating">
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+        </select>
+        <textarea id="comment" placeholder="Write your review..."></textarea>
+        <button onclick="addPost()">Post Review</button>
+    </div>
+
+    <div class="posts" id="posts"></div>
+<br>
+    <div class="posts">
+
+        <div class="post">
+            <div class="post-header">
+                <div class="avatar">A</div>
+                <div><b>Shruti</b><br><small></small></div>
+            </div>
+            <div class="rating">⭐</div>
+            <p>nice mods chal ab mereko add kar.</p>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <div class="avatar">R</div>
+                <div><b>Ravi</b><br><small>GTA V Graphics</small></div>
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p>The realism is next level. Cars, lighting, everything looks cinematic.</p>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <div class="avatar">M</div>
+                <div><b>Maya</b><br><small>Watch Dogs AI</small></div>
+            </div>
+            <div class="rating">⭐⭐⭐⭐</div>
+            <p>AI behavior feels smarter and stealth missions are way more fun now.</p>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <div class="avatar">J</div>
+                <div><b>John</b><br><small>Elden Ring Combat</small></div>
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p>Combat overhaul makes boss fights intense and skill-based.</p>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <div class="avatar">L</div>
+                <div><b>Luna</b><br><small>Cyber Expansion</small></div>
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p>Best mod pack ever. Zero lag and pure immersion.</p>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <div class="avatar">A</div>
+                <div><b>Arjun</b><br><small>GTA Roleplay</small></div>
+            </div>
+            <div class="rating">⭐⭐⭐⭐</div>
+            <p>Roleplay servers feel alive. NPCs and physics are much improved.</p>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <div class="avatar">V</div>
+                <div><b>Viper</b><br><small>Cyberpunk AI Upgrade</small></div>
+            </div>
+            <div class="rating">⭐⭐⭐⭐</div>
+            <p>Gunfights are more challenging and realistic. Totally worth installing.</p>
+        </div>
+
+    </div>
+
 </section>
 
-<!-- LINK JS -->
-<script src="script.js"></script>
+<script>
+    const reveals=document.querySelectorAll(".reveal");
+    window.addEventListener("scroll",()=>{
+      reveals.forEach(el=>{
+        const top=el.getBoundingClientRect().top;
+        if(top<window.innerHeight*0.85) el.classList.add("show");
+      });
+    });
+
+    const posts=document.getElementById("posts");
+    let data = JSON.parse(localStorage.getItem("reviews"));
+
+if (!data || data.length === 0) {
+  data = [
+    {
+      name: "Alex",
+      mod: "Cyberpunk Mods",
+      rating: 5,
+      text: "Absolutely stunning visuals. Mods make Night City feel alive!"
+    },
+    {
+      name: "Ravi",
+      mod: "GTA V Graphics",
+      rating: 5,
+      text: "Next-gen realism. Driving feels insanely real after mods."
+    },
+    {
+      name: "Maya",
+      mod: "Watch Dogs AI Pack",
+      rating: 5,
+      text: "NPC behavior is so smart now. Totally changes gameplay."
+    },
+    {
+      name: "John",
+      mod: "Elden Ring Combat",
+      rating: 5,
+      text: "Combat overhaul makes bosses feel even more intense."
+    },
+    {
+      name: "Neon",
+      mod: "Cyber Expansion",
+      rating: 5,
+      text: "Best mod pack I’ve ever used. Zero lag and super immersive."
+    }
+  ];
+
+  localStorage.setItem("reviews", JSON.stringify(data));
+}
+
+
+    function render(){
+      posts.innerHTML="";
+      data.forEach(r=>{
+        posts.innerHTML+=`
+          <div class="post">
+            <div class="post-header">
+              <div class="avatar">${r.name[0]}</div>
+              <div><b>${r.name}</b><br><small>${r.mod}</small></div>
+            </div>
+            <div class="rating">${"⭐".repeat(r.rating)}</div>
+            <p>${r.text}</p>
+          </div>`;
+      });
+    }
+    render();
+
+    function addPost(){
+      const r={
+        name:username.value||"Gamer",
+        mod:modname.value,
+        rating:rating.value,
+        text:comment.value
+      };
+      if(!r.text) return;
+      data.unshift(r);
+      localStorage.setItem("reviews",JSON.stringify(data));
+      comment.value="";
+      render();
+    }
+</script>
+
 </body>
 </html>
