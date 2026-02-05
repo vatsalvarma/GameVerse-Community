@@ -523,6 +523,100 @@
 }
 
 
+/* ================= MOD GUIDE FULLSCREEN ================= */
+.mod-guide{
+  min-height:100vh;
+  background-image:url("https://i.pinimg.com/1200x/13/06/12/130612a04779be3a896d5ce7a45742bf.jpg");
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+}
+
+/* DARK OVERLAY */
+.mod-guide-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:1;
+}
+
+/* CONTENT */
+.mod-guide{
+  min-height:100vh;
+  background-image:url("https://i.pinimg.com/1200x/9b/39/87/9b3987672eafb81f7e5a1cf049ad4211.jpg");
+  background-size:110%;
+  background-position:center;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  animation:backgroundDrift 18s ease-in-out infinite alternate;
+}
+
+/* BACKGROUND FLOAT / DRIFT */
+@keyframes backgroundDrift{
+  0%{
+    background-position:center;
+  }
+  50%{
+    background-position:center top;
+  }
+  100%{
+    background-position:center;
+  }
+}
+
+
+.mod-guide-content h2{
+  font-size:3.5rem;
+  margin-bottom:20px;
+}
+
+.mod-guide-content p{
+  font-size:1.1rem;
+  opacity:.8;
+  line-height:1.7;
+  margin-bottom:30px;
+}
+
+/* BUTTON */
+.mod-guide-btn{
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.08); /* fully transparent glass */
+  border:1px solid rgba(255,255,255,0.35);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.4s;
+}
+
+/* GLASS HOVER */
+.mod-guide-btn:hover{
+  transform:translateY(-6px) scale(1.06);
+  background:rgba(255,255,255,0.14);
+  box-shadow:0 18px 45px rgba(255,255,255,0.25);
+}
+
+
+/* FLOATING ANIMATION */
+@keyframes floatGuide{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-14px)}
+}
+
+
+
     </style>
 </head>
 
@@ -688,6 +782,23 @@
     </div>
 </section>
 
+<!-- MOD GUIDE FULLSCREEN -->
+<section class="mod-guide reveal">
+    <div class="mod-guide-overlay"></div>
+
+    <div class="mod-guide-content">
+        <h2>How to Mod a Game</h2>
+        <p>
+            Learn how to install mods safely watch a tutorial on yt, improve performance, and unlock
+            next-gen gameplay.<br>
+            Want to add your own mods? Connect with us through email.
+        </p>
+
+        <a href="gamesvatsal99@gmail.com" class="mod-guide-btn">
+            Connect via Email → gamesvatsal99@gmail.com
+        </a>
+    </div>
+</section>
 
 
 <!-- COMMUNITY REVIEWS -->
