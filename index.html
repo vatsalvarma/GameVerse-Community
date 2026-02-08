@@ -658,14 +658,33 @@ background-position: center;
     font-size:.95rem;
   }
 
-  /* GLASS PROFILE */
-  .glass-profile{
-    top:auto;
-    bottom:20px;
-    right:50%;
-    transform:translateX(50%);
-    text-align:center;
-  }
+  /* MOBILE: GLASS PROFILE TOP RIGHT */
+.glass-profile{
+  top:16px;
+  right:16px;
+  bottom:auto;
+  left:auto;
+  transform:none;
+  padding:12px 14px;
+  border-radius:16px;
+  text-align:left;
+  animation:floatProfile 5s ease-in-out infinite;
+}
+
+.glass-profile h4{
+  font-size:.95rem;
+}
+
+.glass-profile p{
+  font-size:.75rem;
+  margin-bottom:6px;
+}
+
+.profile-links a{
+  width:34px;
+  height:34px;
+}
+
 
   .profile-links{
     justify-content:center;
