@@ -535,6 +535,11 @@
   justify-content:center;
   text-align:center;
   overflow:hidden;
+    background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+background-size:110%;
+
 }
 
 /* DARK OVERLAY */
@@ -558,6 +563,12 @@
   text-align:center;
   overflow:hidden;
   animation:backgroundDrift 18s ease-in-out infinite alternate;
+    background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+    background-size:110%;
+
+
 }
 
 /* BACKGROUND FLOAT / DRIFT */
@@ -585,7 +596,16 @@
   line-height:1.7;
   margin-bottom:30px;
 }
+@media (max-width:768px){
+  .mod-hero,
+  .mod-guide{
+    background-attachment:scroll;
+    background-size:cover;
+    background-repeat:no-repeat;
+  }
+}
 
+        
 /* BUTTON */
 .mod-guide-btn{
   display:inline-block;
