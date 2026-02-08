@@ -11,15 +11,15 @@
 
         /* ================= HOME ================= */
         .home{
-          height:100vh;
-          background-image:url("https://i.pinimg.com/1200x/34/0e/7e/340e7e35640d1d10d2075abd4ab72c9d.jpg");
-          background-size:cover;
-          background-position:center;
-          display:flex;
-          align-items:center;
-          padding-left:8vw;
-          position:relative;
-        }
+  height:100vh;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  padding-left:8vw;
+  position:relative;
+}
+
         .home::before{
           content:"";
           position:absolute;
@@ -969,6 +969,22 @@ if (!data || data.length === 0) {
       comment.value="";
       render();
     }
+
+    
+    document.addEventListener("DOMContentLoaded", () => {
+  const homeImages = [
+    "https://i.pinimg.com/1200x/34/0e/7e/340e7e35640d1d10d2075abd4ab72c9d.jpg",
+    "https://i.pinimg.com/1200x/e3/b1/62/e3b1622651d06c787798c6ac37455914.jpg",
+    "https://i.pinimg.com/1200x/2d/31/20/2d31208c78a745a2bab95093bef101bf.jpg",
+    "https://4kwallpapers.com/images/walls/thumbs_3t/22624.jpg",
+    "https://i.pinimg.com/736x/2d/c1/61/2dc1612f332ae062dd3436067b30e896.jpg"
+  ];
+
+  const home = document.querySelector(".home");
+  const randomImage = homeImages[Math.floor(Math.random() * homeImages.length)];
+  home.style.backgroundImage = `url('${randomImage}')`;
+});
+
 </script>
 
 </body>
