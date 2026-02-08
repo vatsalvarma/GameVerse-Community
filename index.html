@@ -615,6 +615,157 @@
   50%{transform:translateY(-14px)}
 }
 
+/* ================= MOBILE OPTIMIZATION ================= */
+@media (max-width: 768px){
+
+  body{
+    font-size:14px;
+  }
+
+  /* HOME */
+  .home{
+    padding:0 6vw;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .home h1{
+    font-size:2.4rem;
+    line-height:1.2;
+  }
+
+  .home span{
+    font-size:.95rem;
+  }
+
+  /* GLASS PROFILE */
+  .glass-profile{
+    top:auto;
+    bottom:20px;
+    right:50%;
+    transform:translateX(50%);
+    text-align:center;
+  }
+
+  .profile-links{
+    justify-content:center;
+  }
+
+  /* SPLIT SECTIONS → STACK */
+  .split,
+  .hero-split{
+    grid-template-columns:1fr;
+  }
+
+  .split.reverse,
+  .hero-split.reverse{
+    direction:ltr;
+  }
+
+  .split-img,
+  .hero-img{
+    height:260px;
+  }
+
+  .split-content,
+  .hero-content{
+    padding:60px 6vw;
+    text-align:center;
+    align-items:center;
+  }
+
+  .split-content h2,
+  .hero-content h2{
+    font-size:2.2rem;
+  }
+
+  .split-content p,
+  .hero-content p{
+    font-size:.95rem;
+  }
+
+  /* GAMES */
+  .games{
+    padding:70px 6vw;
+  }
+
+  .games h2{
+    font-size:2.2rem;
+    text-align:center;
+  }
+
+  /* GAME & MOD CARDS */
+  .game img{
+    height:180px;
+  }
+
+  .mods-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  /* FLOATING MOD CARDS */
+  .floating-section{
+    padding:80px 6vw;
+  }
+
+  .floating-grid{
+    gap:25px;
+  }
+
+  .floating-card{
+    height:260px;
+    animation:none; /* better performance on phone */
+  }
+
+  /* HERO MOD BUTTONS */
+  .hero-mod{
+    width:100%;
+    text-align:center;
+  }
+
+  /* MOD GUIDE */
+  .mod-guide-content h2{
+    font-size:2.4rem;
+  }
+
+  .mod-guide-content p{
+    font-size:.95rem;
+  }
+
+  .mod-guide-btn{
+    padding:12px 22px;
+    font-size:.95rem;
+  }
+
+  /* COMMUNITY */
+  .community{
+    padding:80px 6vw;
+  }
+
+  .community h2{
+    font-size:2.2rem;
+    text-align:center;
+  }
+
+  .review-form{
+    width:100%;
+  }
+
+}
+
+        a, button{
+  -webkit-tap-highlight-color:transparent;
+}
+
+button{
+  min-height:44px; /* thumb-friendly */
+}
+
+        
+img{
+  max-width:100%;
+  height:auto;
+}
 
 
     </style>
