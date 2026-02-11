@@ -295,6 +295,24 @@
   transform:translateY(-6px);
   box-shadow:0 15px 40px rgba(107,107,255,.25);
 }
+        .video-small-text{
+  position:absolute;
+  bottom:40px;          /* change to top if you want */
+  left:40px;
+  z-index:2;
+
+  font-size:.9rem;      /* small text */
+  letter-spacing:1px;
+  opacity:.75;
+
+  padding:6px 12px;
+  border-radius:10px;
+
+  background:rgba(0,0,0,0.35); /* subtle glass */
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+
         /* ================= VIDEO HERO (ASSETTO CORSA) ================= */
 .video-hero{
   position:relative;
@@ -1073,6 +1091,12 @@ img{
   <div class="video-title">
     ASSETTO CORSA
   </div>
+    <div class="video-small-text">
+  Assetto Corsa mods are installed by placing files into the content folder within the main game directory,<br>
+        typically located at:C:\Program Files (x86)\Steam\steamapps\common\assettocorsa\content. <br>
+        
+</div>
+
 
   <!-- BOTTOM RIGHT BUTTON -->
   <a
