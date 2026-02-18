@@ -935,6 +935,143 @@ img{
   height:auto;
 }
 
+/* ================= PROFESSIONAL LOCATION ================= */
+
+.pro-location{
+  padding:140px 8vw;
+  background:linear-gradient(180deg,#050505,#0c0c0c);
+  display:flex;
+  justify-content:center;
+}
+
+.pro-location-container{
+  max-width:1300px;
+  width:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+/* LEFT SIDE INFO */
+.pro-location-info{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:28px;
+  padding:50px;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  transition:.6s cubic-bezier(.2,.8,.2,1);
+}
+
+.pro-location-info:hover{
+  transform:translateY(-12px);
+  box-shadow:0 40px 90px rgba(107,107,255,.25);
+}
+
+.pro-location-info h2{
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+.pro-location-info p{
+  opacity:.8;
+  line-height:1.6;
+  margin-bottom:40px;
+}
+
+.pro-location-details{
+  display:grid;
+  gap:25px;
+  margin-bottom:40px;
+}
+
+.info-item{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  font-size:.95rem;
+}
+
+.info-item span{
+  font-size:1.3rem;
+}
+
+.pro-location-btn{
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.35);
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.4s;
+}
+
+.pro-location-btn:hover{
+  transform:translateY(-6px) scale(1.05);
+  background:rgba(107,107,255,0.25);
+  box-shadow:0 20px 60px rgba(107,107,255,.35);
+}
+
+/* RIGHT SIDE MAP */
+.pro-location-map{
+  height:520px;
+  border-radius:28px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.12);
+  transition:.6s ease;
+}
+
+.pro-location-map iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  filter:grayscale(100%) contrast(1.1);
+  transition:.6s ease;
+}
+
+.pro-location-map:hover iframe{
+  filter:none;
+  transform:scale(1.02);
+}
+
+/* ===== PROFESSIONAL LOCATION MOBILE ===== */
+
+.pro-location{
+  padding:90px 6vw;
+}
+
+.pro-location-container{
+  grid-template-columns:1fr;
+  gap:40px;
+}
+
+.pro-location-info{
+  padding:30px;
+  text-align:center;
+}
+
+.pro-location-info h2{
+  font-size:2.2rem;
+}
+
+.pro-location-info p{
+  font-size:.9rem;
+}
+
+.info-item{
+  justify-content:center;
+  text-align:left;
+}
+
+.pro-location-map{
+  height:300px;
+}
+
+        
+        
 
     </style>
 </head>
@@ -1159,6 +1296,66 @@ img{
             Connect via Email → gamesvatsal99@gmail.com
         </a>
     </div>
+</section>
+
+    <!-- ================= PREMIUM LOCATION SECTION ================= -->
+<section class="pro-location reveal">
+
+  <div class="pro-location-container">
+
+    <!-- LEFT SIDE -->
+    <div class="pro-location-info">
+      <h2>Visit Admin GameVerse</h2>
+      <p>
+        Based in Banglore, India.
+        Building next-gen modded experiences for the gaming community.
+        Connect with us for collaborations and mod publishing.
+      </p>
+
+      <div class="pro-location-details">
+        <div class="info-item">
+          <span>📍</span>
+          <div>
+            <strong>BTM stage-2 Olive Street Food Cafe</strong><br>
+            BTM Layout, Bangalore
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span>📧</span>
+          <div>
+            <strong>Email</strong><br>
+            gamesvatsal99@gmail.com
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span>🎮</span>
+          <div>
+            <strong>Platform</strong><br>
+               Game-verse Mods Creator
+          </div>
+        </div>
+      </div>
+
+      <a 
+        href="https://www.google.com/maps?q=12.9139165,77.6104632"
+        target="_blank"
+        class="pro-location-btn">
+        Open in Google Maps →
+      </a>
+    </div>
+
+    <!-- RIGHT SIDE MAP -->
+    <div class="pro-location-map">
+      <iframe 
+        src="https://www.google.com/maps?q=12.9139165,77.6104632&z=17&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
 </section>
 
 
